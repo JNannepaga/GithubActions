@@ -61,7 +61,7 @@ jobs:
       - name: Run the image in a container
         uses: addnab/docker-run-action@v3
         with:
-          image: ${{ env.IMAGE_NAME }}/ui_malips:latest
+          image: ${{ env.IMAGE_NAME }}:latest
           run: |
             echo "runing the docker image"
 
