@@ -1,0 +1,21 @@
+name: Type2 Create a comment on new Issue using API
+
+on:
+  issues:
+    types: [opened]
+
+jobs:
+  add_comment:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+    - name: Add comment to issue using API
+      run: |
+        curl -X POST \
+          -H 'Authorization: token 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' \
+          -H 'Accept: application/vnd.github.v3+json' \
+          https://api.github.com/repos/MyAccount/MyRepo/issues/${{ github.event.issue.number }}/comments \
+          -d '{
+              "body": "Hello world"
+            }'
