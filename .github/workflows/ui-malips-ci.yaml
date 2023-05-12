@@ -9,6 +9,7 @@ on:
 
 env:
   IMAGE_NAME: nannepagajoseph/ui_malips
+  CI: false
 
 jobs:
   build:
