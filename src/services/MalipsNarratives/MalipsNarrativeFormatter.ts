@@ -42,14 +42,14 @@ export class MalipsNarrativeFormatter<T extends EntityFragment> {
     ): MalipsNarrativeFragments{
         const output: MalipsNarrativeFragments = [];
 
-        for(const element of elements){
-            if(isLiteralElement(element)){
-                output.push(...this.formatLiteralElement(element));
-            }
-            if(isArgumentElement(element)){
-                output.push(...this.formatArgumentElement(element));
-            }
-        }
+        // for(const element of elements){
+        //     if(isLiteralElement(element.type)){
+        //         output.push(...this.formatLiteralElement(element));
+        //     }
+        //     if(isArgumentElement(element)){
+        //         output.push(...this.formatArgumentElement(element));
+        //     }
+        // }
         return output;
     }
 
