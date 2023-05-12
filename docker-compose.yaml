@@ -1,0 +1,15 @@
+version: "3.9"
+services:
+  malips-ui:
+    image: "malips-ui"
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: npm start
+    volumes:
+      - .:/app
+    ports:
+      - "3777:3000"
+    stdin_open: true
+    
+

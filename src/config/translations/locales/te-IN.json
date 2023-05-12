@@ -1,0 +1,5 @@
+{
+   "OwnershipCard.NonEditablePercentage.title": "Yejamanulu",
+   "Protections.ProtectionDescriptionTemplate.FutureStart": "{protectionType} policy {startYear} nunchiee modhalu",
+   "Protections.ProtectionDescriptionTemplate.PRE_EXISTING": "{protectionType} policy {startYear} nunchiee {endYear} varaku"
+}
