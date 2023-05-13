@@ -1,8 +1,23 @@
 name: Malips CI
 on:
-  repository_dispatch:
+  # repository_dispatch:
+  #   types:
+  #     - run-ci-workflow
+  push:
+    branches:
+      - Workflows_ReactApp        
+  pull_request:
+    branches:
+      - Workflows_ReactApp
+
+  workflow_run:
+    workflows:
+        - Malips Linter
+        - Malips Tests And Code Coverage 
     types:
-      - run-ci-workflow
+        - completed
+    branches:
+        - Workflows_ReactApp
 
 env:
   IMAGE_NAME: nannepagajoseph/ui_malips
@@ -58,4 +73,3 @@ jobs:
           image: ${{ env.IMAGE_NAME }}:latest
           run: |
             echo "runing the docker image"
-

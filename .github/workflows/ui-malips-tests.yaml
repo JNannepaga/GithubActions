@@ -39,9 +39,9 @@ jobs:
             token: ${{ secrets.CODECOV_TOKEN }}
             file: ./coverage/lcov.info
       
-      - name: Trigger Build And Shipping
-        uses: peter-evans/repository-dispatch@v1
-        with:
-            repository: ${{ env.repository_name }}
-            token: ${{ secrets.PAT_GITHUB }}
-            event-type: run-ci-workflow
+      # - name: Trigger Build And Shipping
+      #   uses: peter-evans/repository-dispatch@v1
+      #   with:
+      #       repository: ${{ env.repository_name }}
+      #       token: ${{ secrets.PAT_GITHUB }}
+      #       event-type: run-ci-workflow
