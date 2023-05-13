@@ -1,5 +1,0 @@
-{
-    "Protection.Form.UserName": "UserName",
-    "Protections.ProtectionDescriptionTemplate.FutureStart": "{protectionType} policy from {startYear}",
-    "Protections.ProtectionDescriptionTemplate.PRE_EXISTING": "{protectionType} policy from {startYear}-{endYear}"
-}

@@ -1,11 +1,8 @@
 name: Malips CI
 on:
-  push:
-    branches:
-      - Workflows_ReactApp
-  pull_request:
-    branches:
-      - Workflows_ReactApp
+  repository_dispatch:
+    types:
+      - run-ci-workflow
 
 env:
   IMAGE_NAME: nannepagajoseph/ui_malips
@@ -13,7 +10,7 @@ env:
 
 jobs:
   build:
-    name: Test and Build  
+    name: Build
     runs-on: ubuntu-latest
 
     steps:
@@ -22,15 +19,12 @@ jobs:
 
       - name: Install dependencies
         run: npm install
-
-      - name: Run tests
-        run: npm test
-
+      
       - name: Run build
         run: npm run build
-
+        
   generate_docker_image:
-    name: Shipping Package
+    name: Shipping Package to DockerHub
     runs-on: ubuntu-latest
     needs: [build]
 

@@ -1,0 +1,23 @@
+name: Malips Linter
+on:
+  push:
+    branches:
+      - Workflows_ReactApp
+  pull_request:
+    branches:
+      - Workflows_ReactApp
+    
+jobs:
+  lint:
+    name: Linter
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Run Malips Linter
+        run: echo "Running Malips Linter"
+
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Run Linter
+        run: npm lint

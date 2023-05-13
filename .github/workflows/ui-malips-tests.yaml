@@ -1,0 +1,47 @@
+name: Malips Tests And Code Coverage
+on:  
+  push:
+    branches:
+      - Workflows_ReactApp        
+  pull_request:
+    branches:
+      - Workflows_ReactApp
+
+  workflow_run:
+    workflows:
+        - Malips Linter
+    types:
+        - completed
+    branches:
+        - Workflows_ReactApp
+
+env:
+  repository_name: JNannepaga/GithubActions 
+
+jobs:
+  test:
+    name: Tests And CodeCoverage
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run Tests and Generate Coverage Report
+        run: npm run test:coverage
+
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v1
+        with:
+            token: ${{ secrets.CODECOV_TOKEN_MALIPS_CI }}
+            file: ./coverage/lcov.info
+      
+      - name: Trigger Build And Shipping
+        uses: peter-evans/repository-dispatch@v1
+        with:
+            repository: ${{ env.repository_name }}
+            token: ${{ secrets.PAT_GITHUB }}
+            event-type: run-ci-workflow
