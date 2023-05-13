@@ -16,16 +16,22 @@ on:
         - Workflows_ReactApp
 
 env:
-  repository_name: JNannepaga/GithubActions 
+  repository_name: JNannepaga/GithubActions
+  node_version: 19 
 
 jobs:
   test:
     name: Tests And CodeCoverage
     runs-on: ubuntu-latest
+    
 
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version: ${{ env.node_version }}
 
       - name: Install Dependencies
         run: npm install
