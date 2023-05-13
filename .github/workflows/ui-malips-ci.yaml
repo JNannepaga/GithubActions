@@ -22,6 +22,7 @@ on:
 env:
   IMAGE_NAME: nannepagajoseph/ui_malips
   CI: false
+  node_version: 19 
 
 jobs:
   build:
@@ -31,6 +32,11 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
+
+        
+      - uses: actions/setup-node@v3
+        with:
+          node-version: ${{ env.node_version }}
 
       - name: Install Dependencies
         run: npm install
