@@ -8,7 +8,7 @@ exports[`renders learn react link 1`] = `
     className="App-header"
   >
     <h1>
-      Hello world
+      Hello world - Feature1
     </h1>
   </header>
 </div>
