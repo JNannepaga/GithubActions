@@ -2,11 +2,12 @@ name: Malips Tests And Code Coverage
 on:  
   push:
     branches:
-      - Workflows_ReactApp        
+      - Workflows_ReactApp
+
   pull_request:
     branches:
       - Workflows_ReactApp
-
+      
   workflow_run:
     workflows:
         - Malips Linter
@@ -14,7 +15,9 @@ on:
         - completed
     branches:
         - Workflows_ReactApp
-
+  
+  workflow_dispatch:
+  
 env:
   repository_name: JNannepaga/GithubActions
 
@@ -29,7 +32,7 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Install Dependencies
-        run: npm install
+        run: npm ci
 
       - name: Run Tests and Generate Coverage Report
         run: npm run test:coverage
